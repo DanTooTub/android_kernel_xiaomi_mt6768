@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0
 # Backward compatibility
+KBUILD_CPPFLAGS := $(filter-out -DKBUILD_BASENAME%,$(KBUILD_CPPFLAGS))
 asflags-y  += $(EXTRA_AFLAGS)
 ccflags-y  += $(EXTRA_CFLAGS)
 cppflags-y += $(EXTRA_CPPFLAGS)
