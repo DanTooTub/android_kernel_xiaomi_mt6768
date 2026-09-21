@@ -88,7 +88,7 @@ modname = $(if $(modname-multi),$(modname-multi),$(basetarget))
 # $(modname_flags) defines KBUILD_MODNAME as the name of the module it will
 # end up in (or would, if it gets compiled in)
 name-fix = $(squote)$(quote)$(subst $(comma),_,$(subst -,_,$1))$(quote)$(squote)
-basename_flags = -DKBUILD_BASENAME=$(call name-fix,$(basetarget))
+basename_flags = -DKBUILD_BASENAME=\"$(call name-fix,$(basetarget))\"
 modname_flags  = -DKBUILD_MODNAME=$(call name-fix,$(modname))
 
 orig_c_flags   = $(KBUILD_CPPFLAGS) $(KBUILD_CFLAGS) \
