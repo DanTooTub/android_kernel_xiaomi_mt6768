@@ -10,7 +10,8 @@
  * the Free Software Foundation.
  */
 
-#define pr_fmt(fmt) KBUILD_BASENAME ": " fmt
+#include <linux/stringify.h>
+#define pr_fmt(fmt) __stringify(KBUILD_BASENAME) ": " fmt
 
 #include <linux/init.h>
 #include <linux/types.h>
