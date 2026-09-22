@@ -32,7 +32,13 @@ MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
 MTK_PROJECT := $(subst ",,$(CONFIG_ARCH_MTK_PROJECT))
 MTK_CUSTOM_PATH := $(srctree)/drivers/misc/mediatek
 
-ccflags-y += -D$(MTK_PLATFORM) -D$(MTK_PROJECT)
+ifneq ($(strip $(MTK_PLATFORM)),)
+ccflags-y += -D$(MTK_PLATFORM)
+endif
+
+ifneq ($(strip $(MTK_PROJECT)),)
+ccflags-y += -D$(MTK_PROJECT)
+endif
 ifeq ($(CONFIG_MTK_FLASHLIGHT_AW3644),y)
 ccflags-y += -DCONFIG_MTK_FLASHLIGHT_AW3644
 endif
